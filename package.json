@@ -1,0 +1,38 @@
+{
+  "name": "@python-learning/shared",
+  "version": "1.0.0",
+  "description": "Shared types, utilities, and common code for Python Learning Portal microservices",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "python",
+    "learning",
+    "education",
+    "types",
+    "typescript",
+    "microservices"
+  ],
+  "author": "dstorey87",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "rimraf": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dstorey87/python-learning-shared.git"
+  },
+  "homepage": "https://github.com/dstorey87/python-learning-shared#readme",
+  "bugs": {
+    "url": "https://github.com/dstorey87/python-learning-shared/issues"
+  }
+}
