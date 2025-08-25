@@ -90,6 +90,26 @@ export interface APIResponse<T = any> {
   message?: string;
 }
 
+// Payment and Stripe Integration
+export interface PaymentIntent {
+  id: string;
+  amount: number;
+  currency: string;
+  status: 'requires_payment_method' | 'requires_confirmation' | 'requires_action' | 'processing' | 'requires_capture' | 'canceled' | 'succeeded';
+  clientSecret: string;
+}
+
+export interface PaymentMethod {
+  id: string;
+  type: string;
+  card?: {
+    brand: string;
+    last4: string;
+    exp_month: number;
+    exp_year: number;
+  };
+}
+
 // Authentication and subscription types for future use
 export interface AuthUser {
   id: string;
@@ -108,6 +128,38 @@ export interface Subscription {
   currentPeriodEnd: Date;
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
+}
+
+// Supabase Authentication Types
+export interface SupabaseUser {
+  id: string;
+  email?: string;
+  user_metadata: {
+    username?: string;
+    full_name?: string;
+    avatar_url?: string;
+  };
+  app_metadata: {
+    provider?: string;
+    providers?: string[];
+  };
+  aud: string;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface AuthSession {
+  access_token: string;
+  refresh_token: string;
+  expires_at: number;
+  expires_in: number;
+  token_type: string;
+  user: SupabaseUser;
+}
+
+export interface AuthError {
+  message: string;
+  status?: number;
 }
 
 // Frontend-specific types
